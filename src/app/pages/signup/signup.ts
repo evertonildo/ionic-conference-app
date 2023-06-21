@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { UserData } from '../../providers/user-data';
 
 import { UserOptions } from '../../interfaces/user-options';
+import { ApiService } from '../../providers/api.service';
 
 
 
@@ -14,20 +15,26 @@ import { UserOptions } from '../../interfaces/user-options';
   styleUrls: ['./signup.scss'],
 })
 export class SignupPage {
-  signup: UserOptions = { username: '', password: '' };
+  signup: UserOptions = { username: '', password: '', email: '', cpf: '' };
   submitted = false;
+  fullForm: boolean;
 
   constructor(
     public router: Router,
-    public userData: UserData
-  ) {}
+    public userData: UserData,
+    public api: ApiService
+  ) {
+    this.fullForm = false;
+  }
 
   onSignup(form: NgForm) {
     this.submitted = true;
 
     if (form.valid) {
-      this.userData.signup(this.signup.username);
-      this.router.navigateByUrl('/app/tabs/schedule');
+      // this.userData.signup(this.signup.username);
+      this.api.addUser(this.signup.email, this.signup.password, this.signup.username, this.signup.cpf)
+        .then(response => console.log('response', response));
+
     }
   }
 }

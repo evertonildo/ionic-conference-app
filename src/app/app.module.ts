@@ -11,6 +11,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { FormsModule } from '@angular/forms';
 
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -27,4 +28,4 @@ import { FormsModule } from '@angular/forms';
   providers: [InAppBrowser],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
