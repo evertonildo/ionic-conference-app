@@ -32,6 +32,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -48,4 +49,4 @@ const analytics = getAnalytics(app);
   providers: [InAppBrowser],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

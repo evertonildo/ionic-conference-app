@@ -15,28 +15,18 @@
 
   <div class="signup-form">
     <form #signupForm="ngForm" novalidate>
-      <ion-input
-        label="Username"
-        labelPlacement="stacked"
-        fill="solid"
-        [(ngModel)]="signup.username"
-        name="username"
-        type="text"
-        #username="ngModel"
-        errorText="Username is required"
-        required>
+      <ion-input label="Nome" *ngIf="fullForm" labelPlacement="stacked" fill="solid" [(ngModel)]="signup.username" name="username"
+        type="text" #username="ngModel" errorText="O nome é obrigatório" required>
       </ion-input>
+      <ion-input label="e-mail" labelPlacement="stacked" fill="solid" [(ngModel)]="signup.email" name="email"
+        type="text" #email="ngModel" errorText="e-mail é obrigatório" required>
+      </ion-input>
+      <ion-input label="CPF"  *ngIf="fullForm" labelPlacement="stacked" fill="solid" [(ngModel)]="signup.cpf" name="cpf"
+      type="text" #cpf="ngModel" errorText="cpf é obrigatório" required>
+    </ion-input>
 
-      <ion-input
-        label="Password"
-        labelPlacement="stacked"
-        fill="solid"
-        [(ngModel)]="signup.password"
-        name="password"
-        type="password"
-        #password="ngModel"
-        errorText="Password is required"
-        required>
+      <ion-input label="Senha" labelPlacement="stacked" fill="solid" [(ngModel)]="signup.password" name="password"
+        type="password" #password="ngModel" errorText="A senha é obrigatória" required>
       </ion-input>
 
       <div class="ion-padding">
